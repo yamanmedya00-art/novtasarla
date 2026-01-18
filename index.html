@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOV — Web Tasarım</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* ANİMASYONLAR */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px rgba(255,255,255,.2); }
+    50% { text-shadow: 0 0 15px rgba(255,255,255,.6); }
+    100% { text-shadow: 0 0 5px rgba(255,255,255,.2); }
+}
+
+/* GENEL */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* NAV / LOGO */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    border-bottom: 1px solid #111;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: #fff;
+    animation: glow 3s infinite;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 120px 0 80px;
+    animation: fadeUp 1s ease-out;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #ccc;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* BÖLÜM BAŞLIKLARI */
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    margin: 70px 0 30px;
+    letter-spacing: 1px;
+}
+
+/* PAKETLER */
+.packages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 30px;
+    text-align: center;
+    transition: all .4s ease;
+    animation: fadeUp 1.2s ease-out;
+}
+
+.card:hover {
+    border-color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(255,255,255,.1);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.price {
+    font-size: 26px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* ÖZELLİKLER */
+.features {
+    list-style: none;
+    margin: 15px 0;
+    color: #ccc;
+}
+
+/* WHATSAPP BUTONU */
+.whatsapp {
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    padding: 12px 22px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: .3s;
+}
+
+.whatsapp:hover {
+    background: #000;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+/* CTA */
+.cta {
+    text-align: center;
+    margin: 70px 0 90px;
+    animation: fadeUp 1.4s ease-out;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    color: #777;
+    padding: 30px 0;
+    border-top: 1px solid #111;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="container nav">
+    <div class="logo">NOV</div>
+    <div style="color:#777">Web Tasarım</div>
+</nav>
+
+<section class="hero container">
+    <h1>NOV — Dijital Çözümler</h1>
+    <p>
+        Markanız için modern, hızlı ve profesyonel web siteleri tasarlıyoruz.  
+        Aşağıdaki paketleri inceleyin ve WhatsApp üzerinden bizimle iletişime geçin.
+    </p>
+</section>
+
+<h2 class="section-title">Web Tasarım Paketleri</h2>
+
+<section class="container">
+    <div class="packages">
+
+        <!-- Paket 1 -->
+        <div class="card">
+            <h3>Başlangıç Paketi</h3>
+            <div class="price">₺X.XXX</div>
+            <ul class="features">
+                <li>Tek sayfa web sitesi</li>
+                <li>Mobil uyumlu</li>
+                <li>İletişim butonu</li>
+                <li>1 revizyon</li>
+            </ul>
+            <a class="whatsapp" 
+               href="https://wa.me/90SENİN_NUMARAN?text=Başlangıç%20Paketi%20hakkında%20bilgi%20almak%20istiyorum">
+               WhatsApp ile İletişim
+            </a>
+        </div>
+
+        <!-- Paket 2 -->
+        <div class="card">
+            <h3>Standart Paket</h3>
+            <div class="price">₺X.XXX</div>
+            <ul class="features">
+                <li>3 sayfa web sitesi</li>
+                <li>SEO temel ayarları</li>
+                <li>Mobil uyumlu</li>
+                <li>2 revizyon</li>
+            </ul>
+            <a class="whatsapp"
+               href="https://wa.me/90SENİN_NUMARAN?text=Standart%20Paket%20hakkında%20bilgi%20almak%20istiyorum">
+               WhatsApp ile İletişim
+            </a>
+        </div>
+
+        <!-- Paket 3 -->
+        <div class="card">
+            <h3>Premium Paket</h3>
+            <div class="price">₺X.XXX</div>
+            <ul class="features">
+                <li>5+ sayfa web sitesi</li>
+                <li>Gelişmiş SEO</li>
+                <li>Hız optimizasyonu</li>
+                <li>5 revizyon</li>
+            </ul>
+            <a class="whatsapp"
+               href="https://wa.me/90SENİN_NUMARAN?text=Premium%20Paket%20hakkında%20bilgi%20almak%20istiyorum">
+               WhatsApp ile İletişim
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<div class="cta container">
+    <h2>Hemen Teklif Alın</h2>
+    <p>Detaylı bilgi için WhatsApp üzerinden yazabilirsiniz.</p>
+    <a class="whatsapp"
+       href="https://wa.me/90SENİN_NUMARAN?text=Web%20sitesi%20teklifi%20istiyorum">
+       WhatsApp’tan Yaz
+    </a>
+</div>
+
+<footer>
+    © 2026 — NOV Digital
+</footer>
+
+</body>
+</html>
