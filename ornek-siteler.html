@@ -70,11 +70,11 @@ body {
 }
 
 .site-card {
-    min-width:500px;
+    min-width:600px; /* Biraz büyütüldü */
     scroll-snap-align:start;
     background:#111;
     border:1px solid #222;
-    padding:30px;
+    padding:40px; /* İç boşluk artırıldı */
     transition:.3s;
     border-radius:12px;
     text-align:center;
@@ -82,21 +82,23 @@ body {
 
 .site-card:hover {
     border-color:#fff;
-    transform:scale(1.02);
+    transform:scale(1.03);
 }
 
 .site-card h3 {
-    margin-bottom:10px;
+    margin-bottom:15px;
+    font-size:22px;
 }
 
 .site-card p {
     color:#bbb;
-    margin-bottom:20px;
+    margin-bottom:25px;
+    font-size:15px;
 }
 
 .button {
     display:inline-block;
-    padding:12px 22px;
+    padding:14px 26px;
     background:#fff;
     color:#000;
     text-decoration:none;
@@ -109,11 +111,45 @@ body {
     background:#ddd;
 }
 
+/* BİLGİ GRID */
+.info-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+}
+
+.info-card {
+    background:#111;
+    padding:30px;
+    border:1px solid #222;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.info-card:hover {
+    border-color:#fff;
+    transform:translateY(-5px);
+}
+
+.info-card p {
+    color:#bbb;
+}
+
+.center-text {
+    text-align:center;
+}
+
+.dark-section {
+    background:#0a0a0a;
+    padding:80px 0;
+}
+
 /* MOBİL */
 @media(max-width:768px){
 
     .site-card {
         min-width:85%;
+        padding:30px;
     }
 
     .nav {
@@ -164,6 +200,74 @@ body {
 <h3>Blog Sitesi</h3>
 <p>SEO uyumlu içerik paylaşım platformu.</p>
 <a href="siteler/site5/index.html" class="button">Siteyi İncele</a>
+</div>
+
+</div>
+</section>
+
+<!-- WEB SİTE HİZMET SÜRECİ -->
+<section class="container" style="margin-top:100px; margin-bottom:100px;">
+
+<h2 class="center-text" style="margin-bottom:60px; font-size:28px;">
+Web Site Sürecimiz
+</h2>
+
+<div class="info-grid">
+
+<div class="info-card">
+<h3>1. Analiz & Planlama</h3>
+<p>Marka kimliği ve hedef kitlenize uygun yapı belirlenir.</p>
+</div>
+
+<div class="info-card">
+<h3>2. Tasarım</h3>
+<p>Modern, mobil uyumlu ve kullanıcı dostu arayüz hazırlanır.</p>
+</div>
+
+<div class="info-card">
+<h3>3. Yazılım</h3>
+<p>Hızlı, güvenli ve SEO altyapılı kodlama yapılır.</p>
+</div>
+
+<div class="info-card">
+<h3>4. Yayın & Destek</h3>
+<p>Site yayına alınır ve teknik destek sağlanır.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- NEDEN BİZİ SEÇMELİSİNİZ -->
+<section class="dark-section">
+<div class="container">
+
+<h2 class="center-text" style="margin-bottom:50px; font-size:28px;">
+Neden Bizi Seçmelisiniz?
+</h2>
+
+<div class="info-grid center-text">
+
+<div>
+<h3>⚡ Hızlı Teslim</h3>
+<p style="color:#bbb;">Projeler zamanında teslim edilir.</p>
+</div>
+
+<div>
+<h3>📱 %100 Mobil Uyumlu</h3>
+<p style="color:#bbb;">Tüm cihazlarda sorunsuz çalışan tasarım.</p>
+</div>
+
+<div>
+<h3>🔒 Güvenli Altyapı</h3>
+<p style="color:#bbb;">Performans ve güvenlik öncelikli kodlama.</p>
+</div>
+
+<div>
+<h3>🚀 SEO Odaklı</h3>
+<p style="color:#bbb;">Google uyumlu yapı ile görünürlük artışı.</p>
+</div>
+
 </div>
 
 </div>
