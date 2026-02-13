@@ -175,6 +175,67 @@ footer {
     </div>
 </nav>
 
+/* HERO VIDEO */
+.hero-video {
+    position:relative;
+    width:100%;
+    height:80vh;
+    overflow:hidden;
+}
+
+.hero-video video {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.hero-overlay {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    text-align:center;
+    background:rgba(0,0,0,0.5);
+    padding:40px;
+    border-radius:12px;
+}
+
+.hero-overlay h1 {
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.hero-overlay p {
+    font-size:18px;
+    color:#ccc;
+}
+
+/* MOBİL */
+@media(max-width:768px){
+    .hero-video {
+        height:60vh;
+    }
+
+    .hero-overlay h1 {
+        font-size:26px;
+    }
+
+    .hero-overlay p {
+        font-size:14px;
+    }
+}
+
+<!-- HERO VIDEO -->
+<section class="hero-video">
+    <video autoplay muted loop playsinline>
+        <source src="videolar/tanitim.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay">
+        <h1>NOV Tasarım | Yazılım</h1>
+        <p>Modern Web Tasarım & Profesyonel Yazılım Çözümleri</p>
+    </div>
+</section>
+
 <!-- HERO -->
 <section class="hero container">
     <h1>Dijital Çözümler Üretiyoruz</h1>
