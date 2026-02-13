@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -15,7 +16,7 @@ body {
 
 .container {
     width:90%;
-    max-width:1200px;
+    max-width:1400px;
     margin:auto;
 }
 
@@ -47,47 +48,64 @@ body {
 /* BAŞLIK */
 .section-title {
     text-align:center;
-    margin:70px 0 40px;
-    font-size:28px;
+    margin:70px 0 50px;
+    font-size:32px;
 }
 
-/* GRID */
-.grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:30px;
-    margin-bottom:80px;
+/* YATAY SLIDER */
+.video-slider {
+    display:flex;
+    gap:40px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding-bottom:40px;
 }
 
-/* CARD */
+.video-slider::-webkit-scrollbar {
+    height:8px;
+}
+
+.video-slider::-webkit-scrollbar-thumb {
+    background:#333;
+    border-radius:10px;
+}
+
 .video-card {
+    min-width:600px;
+    scroll-snap-align:start;
     background:#111;
     border:1px solid #222;
-    padding:15px;
+    padding:20px;
     transition:.3s;
+    border-radius:12px;
 }
 
 .video-card:hover {
     border-color:#fff;
-    transform:translateY(-5px);
+    transform:scale(1.02);
 }
 
 video {
     width:100%;
-    height:220px;
+    height:350px;
     object-fit:cover;
-    background:#000;
+    border-radius:8px;
 }
 
 /* MOBİL */
 @media(max-width:768px){
-    .nav {
-        flex-direction:column;
-        gap:15px;
+
+    .video-card {
+        min-width:85%;
     }
 
     video {
-        height:200px;
+        height:240px;
+    }
+
+    .nav {
+        flex-direction:column;
+        gap:15px;
     }
 }
 </style>
@@ -103,7 +121,7 @@ video {
 <h2 class="section-title">Örnek Videolar</h2>
 
 <section class="container">
-<div class="grid">
+<div class="video-slider">
 
 <div class="video-card">
 <video controls>
@@ -120,6 +138,7 @@ video {
 <div class="video-card">
 <video controls>
 <source src="videolar/video3.mp4" type="video/mp4">
+</video>
 </video>
 </div>
 
