@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -92,6 +91,40 @@ video {
     border-radius:8px;
 }
 
+/* BİLGİ KARTLARI */
+.info-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+}
+
+.info-card {
+    background:#111;
+    padding:30px;
+    border:1px solid #222;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.info-card:hover {
+    border-color:#fff;
+    transform:translateY(-5px);
+}
+
+.info-card p {
+    color:#bbb;
+}
+
+.center-text {
+    text-align:center;
+}
+
+/* ALT KOYU ALAN */
+.dark-section {
+    background:#0a0a0a;
+    padding:80px 0;
+}
+
 /* MOBİL */
 @media(max-width:768px){
 
@@ -139,7 +172,6 @@ video {
 <video controls>
 <source src="videolar/video3.mp4" type="video/mp4">
 </video>
-</video>
 </div>
 
 <div class="video-card">
@@ -152,6 +184,74 @@ video {
 <video controls>
 <source src="videolar/video5.mp4" type="video/mp4">
 </video>
+</div>
+
+</div>
+</section>
+
+<!-- VIDEO HİZMET SÜRECİ -->
+<section class="container" style="margin-top:100px; margin-bottom:100px;">
+
+<h2 class="center-text" style="margin-bottom:60px; font-size:28px;">
+Video Hizmet Sürecimiz
+</h2>
+
+<div class="info-grid">
+
+<div class="info-card">
+<h3>1. Brief & Planlama</h3>
+<p>Marka hedeflerinizi analiz ediyor, içerik stratejisini belirliyoruz.</p>
+</div>
+
+<div class="info-card">
+<h3>2. Kurgu & Montaj</h3>
+<p>Profesyonel geçişler, ritim uyumu ve dinamik edit uygulanır.</p>
+</div>
+
+<div class="info-card">
+<h3>3. Revizyon</h3>
+<p>Geri bildirimler doğrultusunda son düzenlemeler yapılır.</p>
+</div>
+
+<div class="info-card">
+<h3>4. Teslim</h3>
+<p>YouTube, Reels veya Shorts formatına uygun teslim edilir.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- NEDEN NOV -->
+<section class="dark-section">
+<div class="container">
+
+<h2 class="center-text" style="margin-bottom:50px; font-size:28px;">
+Neden NOV Tasarım | Yazılım?
+</h2>
+
+<div class="info-grid center-text">
+
+<div>
+<h3>⚡ Hızlı Teslim</h3>
+<p style="color:#bbb;">Projeler zamanında ve eksiksiz teslim edilir.</p>
+</div>
+
+<div>
+<h3>🎬 Algoritma Odaklı Kurgu</h3>
+<p style="color:#bbb;">YouTube ve sosyal medya algoritmalarına uygun edit yapılır.</p>
+</div>
+
+<div>
+<h3>🎨 Profesyonel Renk & Ses</h3>
+<p style="color:#bbb;">Renk düzenleme ve ses tasarımı dahildir.</p>
+</div>
+
+<div>
+<h3>🚀 Marka Güçlendirme</h3>
+<p style="color:#bbb;">Her video marka kimliğine uygun tasarlanır.</p>
+</div>
+
 </div>
 
 </div>
