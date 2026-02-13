@@ -1,9 +1,9 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOV — Web Tasarım</title>
+<title>NOV Tasarım | Yazılım</title>
 
 <style>
 * {
@@ -11,7 +11,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    scroll-behavior: smooth;
 }
 
 body {
@@ -20,26 +19,13 @@ body {
     line-height: 1.6;
 }
 
-/* ANİMASYONLAR */
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes glow {
-    0% { text-shadow: 0 0 5px rgba(255,255,255,.2); }
-    50% { text-shadow: 0 0 15px rgba(255,255,255,.6); }
-    100% { text-shadow: 0 0 5px rgba(255,255,255,.2); }
-}
-
-/* GENEL */
 .container {
     width: 90%;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
 }
 
-/* NAV */
+/* NAVBAR */
 .nav {
     display: flex;
     justify-content: space-between;
@@ -49,20 +35,20 @@ body {
 }
 
 .logo {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: bold;
-    letter-spacing: 4px;
-    animation: glow 3s infinite;
+    letter-spacing: 3px;
 }
 
 .nav-links {
     display: flex;
-    gap: 25px;
+    gap: 30px;
 }
 
 .nav-links a {
-    color: #777;
+    color: #aaa;
     text-decoration: none;
+    font-weight: bold;
     transition: .3s;
 }
 
@@ -74,12 +60,11 @@ body {
 .hero {
     text-align: center;
     padding: 120px 0 80px;
-    animation: fadeUp 1s ease-out;
 }
 
 .hero h1 {
-    font-size: 48px;
-    margin-bottom: 15px;
+    font-size: 44px;
+    margin-bottom: 20px;
 }
 
 .hero p {
@@ -88,20 +73,18 @@ body {
     margin: auto;
 }
 
-/* BÖLÜM BAŞLIKLARI */
+/* BAŞLIK */
 .section-title {
     text-align: center;
     font-size: 28px;
-    margin: 70px 0 30px;
-    letter-spacing: 1px;
+    margin: 80px 0 40px;
 }
 
 /* GRID */
-.packages {
+.grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin: 40px 0;
+    gap: 30px;
 }
 
 /* CARD */
@@ -110,46 +93,38 @@ body {
     border: 1px solid #222;
     padding: 30px;
     text-align: center;
-    transition: all .4s ease;
-    animation: fadeUp 1.2s ease-out;
+    transition: .3s;
 }
 
 .card:hover {
     border-color: #fff;
     transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(255,255,255,.1);
-}
-
-.card h3 {
-    margin-bottom: 10px;
-    font-size: 22px;
 }
 
 .price {
     font-size: 26px;
-    margin: 10px 0;
+    margin: 15px 0;
     font-weight: bold;
 }
 
 .features {
     list-style: none;
-    margin: 15px 0;
-    color: #ccc;
+    margin: 20px 0;
+    color: #bbb;
 }
 
 /* BUTON */
-.whatsapp {
+.button {
     display: inline-block;
     background: #fff;
     color: #000;
-    padding: 12px 22px;
+    padding: 12px 25px;
     text-decoration: none;
     font-weight: bold;
-    margin-top: 15px;
     transition: .3s;
 }
 
-.whatsapp:hover {
+.button:hover {
     background: #000;
     color: #fff;
     border: 1px solid #fff;
@@ -158,16 +133,33 @@ body {
 /* CTA */
 .cta {
     text-align: center;
-    margin: 70px 0 90px;
-    animation: fadeUp 1.4s ease-out;
+    margin: 100px 0;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
+    padding: 40px 0;
     color: #777;
-    padding: 30px 0;
     border-top: 1px solid #111;
+    margin-top: 80px;
+}
+
+/* MOBİL */
+@media(max-width:768px) {
+    .nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
 }
 </style>
 </head>
@@ -176,7 +168,7 @@ footer {
 
 <!-- NAV -->
 <nav class="container nav">
-    <div class="logo">NOV</div>
+    <div class="logo">NOV Tasarım | Yazılım</div>
     <div class="nav-links">
         <a href="ornek-videolar.html">Örnek Videolar</a>
         <a href="ornek-siteler.html">Örnek Siteler</a>
@@ -185,339 +177,119 @@ footer {
 
 <!-- HERO -->
 <section class="hero container">
-    <h1>NOV — Dijital Çözümler</h1>
+    <h1>Dijital Çözümler Üretiyoruz</h1>
     <p>
-        Markanız için modern, hızlı ve profesyonel web siteleri tasarlıyoruz.  
-        Aşağıdaki paketleri inceleyin ve WhatsApp üzerinden bizimle iletişime geçin.
+        Modern web siteleri ve profesyonel video hizmetleri ile markanızı dijitalde güçlendiriyoruz.
     </p>
 </section>
 
-<!-- PAKETLER -->
+<!-- WEB TASARIM -->
 <h2 class="section-title">Web Tasarım Paketleri</h2>
 
 <section class="container">
-    <div class="packages">
+<div class="grid">
 
-        <div class="card">
-            <h3>Başlangıç Paketi</h3>
-            <div class="price">₺2.999</div>
-            <ul class="features">
-                <li>Tek sayfa web sitesi</li>
-                <li>Mobil uyumlu</li>
-                <li>İletişim butonu</li>
-                <li>1 revizyon</li>
-            </ul>
-            <a class="whatsapp" href="https://wa.me/905407610461">WhatsApp ile İletişim</a>
-        </div>
+<div class="card">
+<h3>Başlangıç</h3>
+<div class="price">₺2.999</div>
+<ul class="features">
+<li>Tek Sayfa</li>
+<li>Mobil Uyumlu</li>
+<li>1 Revizyon</li>
+</ul>
+<a href="https://wa.me/905407610461" class="button">WhatsApp'tan Yaz</a>
+</div>
 
-        <div class="card">
-            <h3>Standart Paket</h3>
-            <div class="price">₺3.999</div>
-            <ul class="features">
-                <li>3 sayfa web sitesi</li>
-                <li>SEO temel ayarları</li>
-                <li>Mobil uyumlu</li>
-                <li>2 revizyon</li>
-            </ul>
-            <a class="whatsapp" href="https://wa.me/905407610461">WhatsApp ile İletişim</a>
-        </div>
+<div class="card">
+<h3>Standart</h3>
+<div class="price">₺3.999</div>
+<ul class="features">
+<li>3 Sayfa</li>
+<li>SEO Temel</li>
+<li>2 Revizyon</li>
+</ul>
+<a href="https://wa.me/905407610461" class="button">WhatsApp'tan Yaz</a>
+</div>
 
-        <div class="card">
-            <h3>Premium Paket</h3>
-            <div class="price">₺4.999</div>
-            <ul class="features">
-                <li>5+ sayfa web sitesi</li>
-                <li>Gelişmiş SEO</li>
-                <li>Hız optimizasyonu</li>
-                <li>5 revizyon</li>
-            </ul>
-            <a class="whatsapp" href="https://wa.me/905407610461">WhatsApp ile İletişim</a>
-        </div>
+<div class="card">
+<h3>Premium</h3>
+<div class="price">₺4.999</div>
+<ul class="features">
+<li>5+ Sayfa</li>
+<li>Gelişmiş SEO</li>
+<li>Hız Optimizasyonu</li>
+<li>5 Revizyon</li>
+</ul>
+<a href="https://wa.me/905407610461" class="button">WhatsApp'tan Yaz</a>
+</div>
 
-    </div>
+</div>
+</section>
+
+<!-- VİDEO HİZMETLERİ -->
+<h2 class="section-title">Video Hizmet Paketleri</h2>
+
+<section class="container">
+<div class="grid">
+
+<div class="card">
+<h3>Kısa Video</h3>
+<div class="price">₺1.000</div>
+<ul class="features">
+<li>Reels / Shorts</li>
+<li>Altyazı</li>
+<li>1 Revizyon</li>
+</ul>
+<a href="https://wa.me/905407610461" class="button">WhatsApp'tan Yaz</a>
+</div>
+
+<div class="card">
+<h3>Uzun Video</h3>
+<div class="price">₺1.500</div>
+<ul class="features">
+<li>YouTube Format</li>
+<li>Kurgu + Geçiş</li>
+<li>2 Revizyon</li>
+</ul>
+<a href="https://wa.me/905407610461" class="button">WhatsApp'tan Yaz</a>
+</div>
+
+</div>
 </section>
 
 <!-- REFERANSLAR -->
-<h2 class="section-title">Bizimle Çalışan YouTube Kanalları</h2>
+<h2 class="section-title">Referanslar</h2>
 
 <section class="container">
-    <div class="packages">
+<div class="grid">
 
-        <div class="card">
-            <h3>Kanal Adı 1</h3>
-            <p class="features">100K+ Abone</p>
-            <a class="whatsapp" href="#">Kanala Git</a>
-        </div>
+<div class="card">
+<h3>YouTube Kanal 1</h3>
+<a href="#" class="button">Kanala Git</a>
+</div>
 
-        <div class="card">
-            <h3>Kanal Adı 2</h3>
-            <p class="features">50K+ Abone</p>
-            <a class="whatsapp" href="#">Kanala Git</a>
-        </div>
+<div class="card">
+<h3>YouTube Kanal 2</h3>
+<a href="#" class="button">Kanala Git</a>
+</div>
 
-        <div class="card">
-            <h3>Kanal Adı 3</h3>
-            <p class="features">200K+ Abone</p>
-            <a class="whatsapp" href="#">Kanala Git</a>
-        </div>
+<div class="card">
+<h3>YouTube Kanal 3</h3>
+<a href="#" class="button">Kanala Git</a>
+</div>
 
-    </div>
+</div>
 </section>
 
 <!-- CTA -->
 <div class="cta container">
-    <h2>Hemen Teklif Alın</h2>
-    <p>Detaylı bilgi için WhatsApp üzerinden yazabilirsiniz.</p>
-    <a class="whatsapp" href="https://wa.me/905407610461">WhatsApp’tan Yaz</a>
+<h2>Hemen Teklif Alın</h2>
+<br>
+<a href="https://wa.me/905407610461" class="button">WhatsApp’tan Yaz</a>
 </div>
 
 <footer>
-    © 2026 — NOV Digital
-</footer>
-
-</body>
-</html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOV — Web Tasarım</title>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    scroll-behavior: smooth;
-}
-
-body {
-    background: #000;
-    color: #fff;
-    line-height: 1.6;
-}
-
-/* ANİMASYONLAR */
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes glow {
-    0% { text-shadow: 0 0 5px rgba(255,255,255,.2); }
-    50% { text-shadow: 0 0 15px rgba(255,255,255,.6); }
-    100% { text-shadow: 0 0 5px rgba(255,255,255,.2); }
-}
-
-/* GENEL */
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-}
-
-/* NAV / LOGO */
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 0;
-    border-bottom: 1px solid #111;
-}
-
-.logo {
-    font-size: 32px;
-    font-weight: bold;
-    letter-spacing: 4px;
-    color: #fff;
-    animation: glow 3s infinite;
-}
-
-/* HERO */
-.hero {
-    text-align: center;
-    padding: 120px 0 80px;
-    animation: fadeUp 1s ease-out;
-}
-
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 15px;
-}
-
-.hero p {
-    color: #ccc;
-    max-width: 700px;
-    margin: auto;
-}
-
-/* BÖLÜM BAŞLIKLARI */
-.section-title {
-    text-align: center;
-    font-size: 28px;
-    margin: 70px 0 30px;
-    letter-spacing: 1px;
-}
-
-/* PAKETLER */
-.packages {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin: 40px 0;
-}
-
-.card {
-    background: #111;
-    border: 1px solid #222;
-    padding: 30px;
-    text-align: center;
-    transition: all .4s ease;
-    animation: fadeUp 1.2s ease-out;
-}
-
-.card:hover {
-    border-color: #fff;
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(255,255,255,.1);
-}
-
-.card h3 {
-    margin-bottom: 10px;
-    font-size: 22px;
-}
-
-.price {
-    font-size: 26px;
-    margin: 10px 0;
-    font-weight: bold;
-}
-
-/* ÖZELLİKLER */
-.features {
-    list-style: none;
-    margin: 15px 0;
-    color: #ccc;
-}
-
-/* WHATSAPP BUTONU */
-.whatsapp {
-    display: inline-block;
-    background: #fff;
-    color: #000;
-    padding: 12px 22px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 15px;
-    transition: .3s;
-}
-
-.whatsapp:hover {
-    background: #000;
-    color: #fff;
-    border: 1px solid #fff;
-}
-
-/* CTA */
-.cta {
-    text-align: center;
-    margin: 70px 0 90px;
-    animation: fadeUp 1.4s ease-out;
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    color: #777;
-    padding: 30px 0;
-    border-top: 1px solid #111;
-}
-</style>
-</head>
-
-<body>
-
-<nav class="container nav">
-    <div class="logo">NOV</div>
-    <div style="color:#777">Web Tasarım</div>
-</nav>
-
-<section class="hero container">
-    <h1>NOV — Dijital Çözümler</h1>
-    <p>
-        Markanız için modern, hızlı ve profesyonel web siteleri tasarlıyoruz.  
-        Aşağıdaki paketleri inceleyin ve WhatsApp üzerinden bizimle iletişime geçin.
-    </p>
-</section>
-
-<h2 class="section-title">Web Tasarım Paketleri</h2>
-
-<section class="container">
-    <div class="packages">
-
-        <!-- Paket 1 -->
-        <div class="card">
-            <h3>Başlangıç Paketi</h3>
-            <div class="price">₺2.999</div>
-            <ul class="features">
-                <li>Tek sayfa web sitesi</li>
-                <li>Mobil uyumlu</li>
-                <li>İletişim butonu</li>
-                <li>1 revizyon</li>
-            </ul>
-            <a class="whatsapp" 
-               href="https://wa.me/905407610461?text=Başlangıç%20Paketi%20hakkında%20bilgi%20almak%20istiyorum">
-               WhatsApp ile İletişim
-            </a>
-        </div>
-
-        <!-- Paket 2 -->
-        <div class="card">
-            <h3>Standart Paket</h3>
-            <div class="price">₺3.999</div>
-            <ul class="features">
-                <li>3 sayfa web sitesi</li>
-                <li>SEO temel ayarları</li>
-                <li>Mobil uyumlu</li>
-                <li>2 revizyon</li>
-            </ul>
-            <a class="whatsapp"
-               href="https://wa.me/905407610461?text=Standart%20Paket%20hakkında%20bilgi%20almak%20istiyorum">
-               WhatsApp ile İletişim
-            </a>
-        </div>
-
-        <!-- Paket 3 -->
-        <div class="card">
-            <h3>Premium Paket</h3>
-            <div class="price">₺4.999</div>
-            <ul class="features">
-                <li>5+ sayfa web sitesi</li>
-                <li>Gelişmiş SEO</li>
-                <li>Hız optimizasyonu</li>
-                <li>5 revizyon</li>
-            </ul>
-            <a class="whatsapp"
-               href="https://wa.me/905407610461?text=Premium%20Paket%20hakkında%20bilgi%20almak%20istiyorum">
-               WhatsApp ile İletişim
-            </a>
-        </div>
-
-    </div>
-</section>
-
-<div class="cta container">
-    <h2>Hemen Teklif Alın</h2>
-    <p>Detaylı bilgi için WhatsApp üzerinden yazabilirsiniz.</p>
-    <a class="whatsapp"
-       href="https://wa.me/905407610461?text=Web%20sitesi%20teklifi%20istiyorum">
-       WhatsApp’tan Yaz
-    </a>
-</div>
-
-<footer>
-    © 2026 — NOV Digital
+© 2026 — NOV Tasarım | Yazılım
 </footer>
 
 </body>
