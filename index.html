@@ -167,12 +167,6 @@ footer {
     overflow:hidden;
 }
 
-.hero-video video {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
 .hero-overlay {
     position:absolute;
     top:50%;
@@ -194,20 +188,19 @@ footer {
     color:#ccc;
 }
 
-/* MOBİL */
-@media(max-width:768px){
-    .hero-video {
-        height:60vh;
-    }
+/* HERO VIDEO */
+.hero-video {
+    width: 100%;
+    height: 100vh; /* ekran yüksekliği kadar */
+    overflow: hidden;
+    position: relative;
+}
 
-    .hero-overlay h1 {
-        font-size:26px;
-    }
-
-    .hero-overlay p {
-        font-size:14px;
-    }
-}  
+.hero-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Taşmayı engeller, kırpma yapar */
+}
 </style>
 </head>
 
