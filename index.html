@@ -188,25 +188,28 @@ footer {
     color:#ccc;
 }
 
-/* HERO VIDEO */
 .hero-video {
     width: 100%;
-    height: 100vh; /* ekran yüksekliği kadar */
+    height: 100vh;
     overflow: hidden;
-    position: relative;
 }
 
 .hero-video video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Taşmayı engeller, kırpma yapar */
+    object-fit: cover;
 }
 
+/* Mobil için farklı */
 @media (max-width: 768px) {
     .hero-video {
-        height: 60vh; /* mobilde biraz daha kısa */
+        height: 70vh;
     }
-} 
+
+    .hero-video video {
+        object-fit: contain;
+    }
+}
 </style>
 </head>
 
