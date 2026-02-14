@@ -77,7 +77,7 @@ body {
 .section-title {
     text-align: center;
     font-size: 28px;
-    margin: 80px 0 40px;
+    margin: 40px 0 40px;
 }
 
 /* GRID */
@@ -148,13 +148,26 @@ footer {
 /* MOBİL */
 @media(max-width:768px) {
     .nav {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 16px;
+        letter-spacing: 1px;
+        white-space: nowrap;
     }
 
     .nav-links {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+        white-space: nowrap;
     }
 
     .hero h1 {
@@ -187,20 +200,13 @@ footer {
     width: 100%;
     height: auto;
     overflow: hidden;
-    line-height: -10;
+    line-height: 0;
 }
 
 .hero-video video {
     width: 100%;
     height: auto;
     display: block;
-}
-
-/* Mobil optimize */
-@media (max-width: 768px) {
-    .hero-video {
-        height: 60vh;
-    }
 }
     
 </style>
