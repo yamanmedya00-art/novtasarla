@@ -35,7 +35,7 @@ body {
 }
 
 .logo {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: bold;
     letter-spacing: 3px;
 }
@@ -189,23 +189,32 @@ footer {
 }
     
 .hero-video {
+    position: relative;
     width: 100%;
     height: 100svh;
     overflow: hidden;
+    background: black;
 }
 
-.hero-video video {
-    width: 95%;
-    height: 95%;
-    object-fit: cover;
-    display: block;
-    margin-left: -4%;
-    margin-top: -4%;
+/* Video ana sistem */
+.hero-video-media {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    min-width: 100%;
+    min-height: 100%;
+
+    width: auto;
+    height: auto;
+
+    transform: translate(-50%, -50%);
 }
 
-@media (max-width:768px){
-    .hero-video{
-        height:55vh;
+/* Mobil optimize */
+@media (max-width: 768px) {
+    .hero-video {
+        height: 60vh;
     }
 }
     
@@ -223,13 +232,12 @@ footer {
     </div>
 </nav>
 
-<!-- HERO VIDEO -->
 <section class="hero-video">
-    <video autoplay muted loop playsinline>
+    <video class="hero-video-media" autoplay muted loop playsinline>
         <source src="videolar/tanitim.mp4" type="video/mp4">
     </video>
 </section>
-
+    
 <!-- WEB TASARIM -->
 <h2 class="section-title">Web Tasarım Paketleri</h2>
 
