@@ -109,16 +109,14 @@ body {
     width: 100%;
 }
 
-/* HERO VIDEO SECTION */
+/* HERO VIDEO SECTION - 16:9 ORANI */
 .hero-video {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    padding-top: 56.25%; /* 16:9 Oranı (9/16 = 0.5625) */
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background: var(--bg-dark);
+    margin-top: 70px; /* Navbar yüksekliği kadar boşluk */
 }
 
 .hero-video video {
@@ -127,11 +125,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* Video tam görünsün, kırpma yapma */
     object-position: center;
     z-index: 0;
 }
-
+    
 .hero-overlay {
     position: relative;
     z-index: 2;
