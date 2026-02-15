@@ -8,17 +8,14 @@
 
 <style>
 :root {
-    --primary: #6366f1;
-    --primary-dark: #4f46e5;
-    --accent: #ec4899;
-    --bg-dark: #0a0a0a;
-    --bg-card: #111111;
-    --text-light: #f5f5f5;
-    --text-muted: #a1a1aa;
-    --border: #27272a;
-    --gradient-1: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
-    --gradient-2: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
-    --glass: rgba(255, 255, 255, 0.05);
+    --bg-dark: #000000;
+    --bg-card: #0a0a0a;
+    --bg-hover: #111111;
+    --text-white: #ffffff;
+    --text-gray: #888888;
+    --text-light: #cccccc;
+    --border: #222222;
+    --border-hover: #444444;
 }
 
 * {
@@ -34,7 +31,7 @@ html {
 
 body {
     background: var(--bg-dark);
-    color: var(--text-light);
+    color: var(--text-white);
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -56,10 +53,9 @@ body {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(10, 10, 10, 0.8);
+    background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
-    width: 100%;
 }
 
 .nav .container {
@@ -71,27 +67,27 @@ body {
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 800;
-    letter-spacing: 2px;
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    letter-spacing: 3px;
+    color: var(--text-white);
+    text-transform: uppercase;
 }
 
 .nav-links {
-    display: display: flex;
-    gap: 40px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
 }
 
 .nav-links a {
-    color: var(--text-muted);
+    color: var(--text-gray);
     text-decoration: none;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 14px;
     transition: all 0.3s ease;
     position: relative;
+    white-space: nowrap;
 }
 
 .nav-links a::after {
@@ -100,13 +96,13 @@ body {
     bottom: -5px;
     left: 0;
     width: 0;
-    height: 2px;
-    background: var(--gradient-1);
+    height: 1px;
+    background: var(--text-white);
     transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--text-light);
+    color: var(--text-white);
 }
 
 .nav-links a:hover::after {
@@ -117,23 +113,22 @@ body {
 .hero-video {
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: var(--bg-dark);
 }
 
 .hero-video video {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    object-position: center;
     z-index: 0;
 }
 
@@ -141,66 +136,28 @@ body {
     position: relative;
     z-index: 2;
     text-align: center;
-    padding: 60px;
-    background: var(--glass);
-    backdrop-filter: blur(20px);
+    padding: 60px 40px;
+    background: rgba(0, 0, 0, 0.7);
     border: 1px solid var(--border);
-    border-radius: 24px;
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 20px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
-
-.hero-overlay::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 24px;
-    padding: 1px;
-    background: var(--gradient-1);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.5;
+    backdrop-filter: blur(10px);
 }
 
 .hero-overlay h1 {
-    font-size: 56px;
+    font-size: 48px;
     font-weight: 800;
     margin-bottom: 20px;
-    line-height: 1.1;
-    background: linear-gradient(to right, #fff 0%, #a5b4fc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    line-height: 1.2;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .hero-overlay p {
-    font-size: 20px;
-    color: var(--text-muted);
-    margin-bottom: 30px;
-    max-width: 600px;
-}
-
-.hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--gradient-1);
-    color: white;
-    padding: 16px 32px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.5);
-}
-
-.hero-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 20px 60px -10px rgba(99, 102, 241, 0.6);
+    font-size: 18px;
+    color: var(--text-light);
+    line-height: 1.6;
 }
 
 /* SECTIONS */
@@ -215,50 +172,47 @@ section {
 
 .section-label {
     display: inline-block;
-    padding: 8px 16px;
-    background: var(--glass);
+    padding: 8px 20px;
+    background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 50px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--primary);
+    letter-spacing: 3px;
+    color: var(--text-gray);
     margin-bottom: 20px;
 }
 
 .section-title {
-    font-size: 42px;
+    font-size: 36px;
     font-weight: 800;
-    margin-bottom: 20px;
-    background: linear-gradient(to right, #fff 0%, #a1a1aa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    margin-bottom: 15px;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .section-subtitle {
-    color: var(--text-muted);
-    font-size: 18px;
-    max-width: 600px;
+    color: var(--text-gray);
+    font-size: 16px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
 /* GRID */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 
 /* CARD */
 .card {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 20px;
     padding: 40px 30px;
     text-align: center;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
 }
@@ -269,169 +223,144 @@ section {
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: var(--gradient-1);
+    height: 2px;
+    background: var(--text-white);
     transform: scaleX(0);
     transition: transform 0.4s ease;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary);
-    box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.3);
+    transform: translateY(-8px);
+    border-color: var(--border-hover);
+    background: var(--bg-hover);
 }
 
 .card:hover::before {
     transform: scaleX(1);
 }
 
-.card-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--gradient-1);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 28px;
-}
-
 .card h3 {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     margin-bottom: 15px;
-    color: var(--text-light);
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .price {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 800;
     margin: 20px 0;
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-white);
 }
 
 .price span {
     font-size: 16px;
-    font-weight: 500;
-    color: var(--text-muted);
-    -webkit-text-fill-color: var(--text-muted);
+    font-weight: 400;
+    color: var(--text-gray);
 }
 
 .features {
     list-style: none;
-    margin: 30px 0;
+    margin: 25px 0;
     text-align: left;
 }
 
 .features li {
-    color: var(--text-muted);
+    color: var(--text-light);
     padding: 10px 0;
-    padding-left: 28px;
+    padding-left: 25px;
     position: relative;
-    font-size: 15px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+}
+
+.features li:last-child {
+    border-bottom: none;
 }
 
 .features li::before {
-    content: '✓';
+    content: '→';
     position: absolute;
     left: 0;
-    color: var(--primary);
+    color: var(--text-white);
     font-weight: bold;
 }
 
 /* BUTON */
 .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: transparent;
-    color: var(--text-light);
-    padding: 14px 28px;
+    display: inline-block;
+    background: var(--text-white);
+    color: var(--bg-dark);
+    padding: 14px 30px;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 15px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: all 0.3s ease;
-    width: 100%;
-    margin-top: 10px;
+    border: 2px solid var(--text-white);
+    margin-top: 15px;
+    cursor: pointer;
 }
 
 .button:hover {
-    background: var(--gradient-1);
-    border-color: transparent;
-    color: white;
+    background: transparent;
+    color: var(--text-white);
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.4);
 }
 
-.button.primary {
-    background: var(--gradient-1);
-    border-color: transparent;
-    color: white;
+.button.outline {
+    background: transparent;
+    color: var(--text-white);
+    border: 1px solid var(--border);
+}
+
+.button.outline:hover {
+    border-color: var(--text-white);
+    background: var(--text-white);
+    color: var(--bg-dark);
 }
 
 /* REFERANSLAR */
 .referans-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 40px;
+    padding: 50px 30px;
     text-align: center;
     transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.referans-card::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
 }
 
 .referans-card:hover {
     transform: translateY(-5px);
-    border-color: var(--primary);
-}
-
-.referans-card:hover::after {
-    opacity: 1;
+    border-color: var(--border-hover);
+    background: var(--bg-hover);
 }
 
 .referans-card h3 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     margin-bottom: 10px;
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .referans-card p {
-    color: var(--text-muted);
+    color: var(--text-gray);
     font-size: 14px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* CTA SECTION */
 .cta-section {
-    background: var(--gradient-1);
-    border-radius: 30px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
     padding: 80px 40px;
     text-align: center;
-    margin: 0 20px;
     position: relative;
     overflow: hidden;
 }
@@ -439,58 +368,55 @@ section {
 .cta-section::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--text-white);
 }
 
 .cta-section h2 {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 800;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
+    margin-bottom: 15px;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .cta-section p {
-    font-size: 18px;
-    opacity: 0.9;
+    font-size: 16px;
+    color: var(--text-gray);
     margin-bottom: 30px;
-    position: relative;
-    z-index: 1;
 }
 
 .cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: white;
-    color: var(--primary-dark);
-    padding: 18px 36px;
-    border-radius: 50px;
+    display: inline-block;
+    background: var(--text-white);
+    color: var(--bg-dark);
+    padding: 16px 40px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     transition: all 0.3s ease;
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.3);
+    border: 2px solid var(--text-white);
 }
 
 .cta-button:hover {
+    background: transparent;
+    color: var(--text-white);
     transform: translateY(-3px);
-    box-shadow: 0 20px 60px -10px rgba(0,0,0,0.4);
 }
 
 /* FOOTER */
 footer {
     text-align: center;
     padding: 60px 0 40px;
-    color: var(--text-muted);
+    color: var(--text-gray);
     border-top: 1px solid var(--border);
-    margin-top: 60px;
+    margin-top: 0;
 }
 
 .footer-content {
@@ -502,40 +428,57 @@ footer {
 
 .social-links {
     display: flex;
-    gap: 20px;
+    gap: 15px;
 }
 
 .social-links a {
-    width: 44px;
-    height: 44px;
+    width: 45px;
+    height: 45px;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-muted);
+    color: var(--text-white);
     text-decoration: none;
     transition: all 0.3s ease;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .social-links a:hover {
-    background: var(--primary);
-    border-color: var(--primary);
-    color: white;
+    background: var(--text-white);
+    color: var(--bg-dark);
+    border-color: var(--text-white);
     transform: translateY(-3px);
 }
 
 /* MOBİL */
 @media(max-width: 768px) {
+    .nav {
+        padding: 15px 0;
+    }
+
     .nav .container {
         flex-direction: column;
         gap: 15px;
     }
 
+    .logo {
+        font-size: 18px;
+    }
+
     .nav-links {
-        gap: 20px;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .hero-video {
+        min-height: 80vh;
     }
 
     .hero-overlay {
@@ -544,15 +487,16 @@ footer {
     }
 
     .hero-overlay h1 {
-        font-size: 36px;
+        font-size: 28px;
+        letter-spacing: 1px;
     }
 
     .hero-overlay p {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .section-title {
-        font-size: 32px;
+        font-size: 26px;
     }
 
     .grid {
@@ -560,35 +504,26 @@ footer {
         gap: 20px;
     }
 
+    .card {
+        padding: 30px 20px;
+    }
+
+    .price {
+        font-size: 28px;
+    }
+
     .cta-section {
         padding: 60px 25px;
-        margin: 0 15px;
     }
 
     .cta-section h2 {
-        font-size: 28px;
+        font-size: 24px;
     }
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.card, .referans-card {
-    animation: fadeInUp 0.6s ease forwards;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -597,11 +532,10 @@ footer {
 
 ::-webkit-scrollbar-thumb {
     background: var(--border);
-    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--primary);
+    background: var(--border-hover);
 }
 </style>
 </head>
@@ -613,9 +547,9 @@ footer {
     <div class="container">
         <div class="logo">NOV Edit | Tasarım</div>
         <div class="nav-links">
-            <a href="#video-paketleri">Video</a>
-            <a href="#web-paketleri">Web Tasarım</a>
-            <a href="#referanslar">Referanslar</a>
+            <a href="ornek-videolar.html">Örnek Videolar</a>
+            <a href="ornek-siteler.html">Örnek Siteler</a>
+            <a href="#video-paketleri">Video Paketleri</a>
         </div>
     </div>
 </nav>
@@ -626,12 +560,8 @@ footer {
         <source src="videolar/tanitim.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay">
-        <h1>Kreatif Dünyaya Hoş Geldiniz</h1>
-        <p>Profesyonel video edit ve web tasarım hizmetleriyle markanızı bir üst seviyeye taşıyoruz.</p>
-        <a href="https://wa.me/905331400419" class="hero-cta">
-            <span>Hemen Başlayın</span>
-            <span>→</span>
-        </a>
+        <h1>Nov Edit | Tasarım</h1>
+        <p>Profesyonel video edit ve web tasarım hizmetleriyle markanızı bir üst seviyeye taşıyoruz. Yaratıcı çözümler, modern tasarımlar.</p>
     </div>
 </section>
 
@@ -645,68 +575,63 @@ footer {
     
     <div class="grid">
         <div class="card">
-            <div class="card-icon">🎬</div>
-            <h3>Kısa Video Hizmeti</h3>
-            <div class="price">800<span>₺</span></div>
+            <h3>Kısa Video</h3>
+            <div class="price">800<span> ₺</span></div>
             <ul class="features">
                 <li>Reels / Shorts Formatı</li>
                 <li>Uzun Video Dönüştürme</li>
-                <li>Sınırsız Revizyon Hakkı</li>
+                <li>Sınırsız Revizyon</li>
                 <li>24 Saat Teslimat</li>
             </ul>
-            <a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
+            <a href="https://wa.me/905331400419" class="button">WhatsApp</a>
         </div>
 
         <div class="card">
-            <div class="card-icon">🎥</div>
-            <h3>Uzun Video Hizmeti</h3>
-            <div class="price">1000<span>₺</span></div>
+            <h3>Uzun Video</h3>
+            <div class="price">1000<span> ₺</span></div>
             <ul class="features">
-                <li>20 Dakikaya Kadar Edit</li>
-                <li>Profesyonel Kurgu + Geçiş</li>
-                <li>Sınırsız Revizyon Hakkı</li>
+                <li>20 Dakikaya Kadar</li>
+                <li>Kurgu + Geçiş</li>
+                <li>Sınırsız Revizyon</li>
                 <li>Color Grading</li>
             </ul>
-            <a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
+            <a href="https://wa.me/905331400419" class="button">WhatsApp</a>
         </div>
 
         <div class="card">
-            <div class="card-icon">🎙️</div>
-            <h3>Dublajlandırma Hizmeti</h3>
-            <div class="price">350<span>₺</span></div>
+            <h3>Dublaj</h3>
+            <div class="price">350<span> ₺</span></div>
             <ul class="features">
-                <li>20 Dakikaya Kadar Dublaj</li>
-                <li>Binlerce Özel Ses Kütüphanesi</li>
-                <li>Sınırsız Dil Seçeneği</li>
-                <li>AI Ses Optimizasyonu</li>
+                <li>20 Dakikaya Kadar</li>
+                <li>Özel Ses Kütüphanesi</li>
+                <li>Sınırsız Dil</li>
+                <li>AI Optimizasyon</li>
             </ul>
-            <a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
+            <a href="https://wa.me/905331400419" class="button">WhatsApp</a>
         </div>
 
         <div class="card">
-            <div class="card-icon">⚡</div>
-            <h3>4K Aktarım Hizmeti</h3>
-            <div class="price">500<span>₺</span></div>
+            <h3>4K Aktarım</h3>
+            <div class="price">500<span> ₺</span></div>
             <ul class="features">
-                <li>20 Dakikaya Kadar Aktarım</li>
-                <li>60FPS Video Kalitesi</li>
-                <li>Sınırsız Revizyon Hakkı</li>
+                <li>20 Dakikaya Kadar</li>
+                <li>60FPS Kalite</li>
+                <li>Sınırsız Revizyon</li>
                 <li>HDR Desteği</li>
             </ul>
-            <a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
+            <a href="https://wa.me/905331400419" class="button">WhatsApp</a>
         </div>
 
         <div class="card">
-            <div class="card-icon">🎵</div>
-            <h3>Özel Fon Müziği</h3>
-            <div class="price">500<span>₺</span></div>
+            <h3>Fon Müziği</h3>
+            <div class="price">500<span> ₺</span></div>
             <ul class="features">
-                <li>İsteğe Özel Fon Müzik</li>
-                <li>Binlerce Özel Tema</li>
-                <li>Sınırsız Revizyon Hakkı</li>
+                <li>İsteğe Özel Müzik</li>
+                <li>Binlerce Tema</li>
+                <li>Sınırsız Revizyon</li>
                 <li>Lisanslı Kullanım</li>
             </ul>
-            <a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
+            <a href="https://wa.me/905331400419" class="button">WhatsApp</a>
         </div>
     </div>
 </section>
@@ -721,43 +646,40 @@ footer {
 
     <div class="grid">
         <div class="card">
-            <div class="card-icon">🚀</div>
             <h3>Başlangıç</h3>
-            <div class="price">2.999<span>₺</span></div>
+            <div class="price">2.999<span> ₺</span></div>
             <ul class="features">
                 <li>Tek Sayfa Landing</li>
                 <li>Tam Mobil Uyumlu</li>
-                <li>1 Revizyon Hakkı</li>
+                <li>1 Revizyon</li>
                 <li>Temel SEO</li>
             </ul>
-            <a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
+            <a href="https://wa.me/905331400419" class="button">WhatsApp</a>
         </div>
 
         <div class="card">
-            <div class="card-icon">⭐</div>
             <h3>Standart</h3>
-            <div class="price">3.999<span>₺</span></div>
+            <div class="price">3.999<span> ₺</span></div>
             <ul class="features">
                 <li>3 Sayfa Tasarım</li>
                 <li>Gelişmiş SEO</li>
-                <li>2 Revizyon Hakkı</li>
+                <li>2 Revizyon</li>
                 <li>İletişim Formu</li>
             </ul>
-            <a href="https://wa.me/905331400419" class="button primary">WhatsApp'tan Yaz</a>
+            <a href="https://wa.me/905331400419" class="button">WhatsApp</a>
         </div>
 
         <div class="card">
-            <div class="card-icon">👑</div>
             <h3>Premium</h3>
-            <div class="price">4.999<span>₺</span></div>
+            <div class="price">4.999<span> ₺</span></div>
             <ul class="features">
                 <li>5+ Sayfa Tasarım</li>
                 <li>Profesyonel SEO</li>
                 <li>Hız Optimizasyonu</li>
-                <li>5 Revizyon Hakkı</li>
+                <li>5 Revizyon</li>
                 <li>Admin Paneli</li>
             </ul>
-            <a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
+            <a href="https://wa.me/905331400419" class="button">WhatsApp</a>
         </div>
     </div>
 </section>
@@ -772,21 +694,21 @@ footer {
 
     <div class="grid">
         <div class="referans-card">
-            <h3>THOUGHT MILLIONAIRE</h3>
-            <p>YouTube Kanalı</p>
-            <a href="https://youtube.com/@thoughtmillionaire" target="_blank" class="button">Kanala Git →</a>
+            <h3>Thought Millionaire</h3>
+            <p>Bilgilendirme Kanalı</p>
+            <a href="https://youtube.com/@thoughtmillionaire" target="_blank" class="button outline">Kanala Git</a>
         </div>
 
         <div class="referans-card">
-            <h3>3D HEALTH</h3>
+            <h3>3D Health</h3>
             <p>Sağlık Platformu</p>
-            <a href="#" class="button">Yakında</a>
+            <a href="#" class="button outline">Kanala Git</a>
         </div>
 
         <div class="referans-card">
             <h3>Furkan Uysal</h3>
             <p>Kişisel Marka</p>
-            <a href="#" class="button">Yakında</a>
+            <a href="#" class="button outline">Kanala Git</a>
         </div>
     </div>
 </section>
@@ -794,12 +716,9 @@ footer {
 <!-- CTA SECTION -->
 <section class="container">
     <div class="cta-section">
-        <h2>Hayalinizdeki Projeyi Gerçekleştirelim</h2>
+        <h2>Projeye Başlayalım</h2>
         <p>Profesyonel ekibimizle tanışın ve hemen başlayın</p>
-        <a href="https://wa.me/905331400419" class="cta-button">
-            <span>Ücretsiz Danışmanlık Al</span>
-            <span>→</span>
-        </a>
+        <a href="https://wa.me/905331400419" class="cta-button">Ücretsiz Danışmanlık</a>
     </div>
 </section>
 
@@ -807,10 +726,10 @@ footer {
 <footer class="container">
     <div class="footer-content">
         <div class="social-links">
-            <a href="#" title="Instagram">📷</a>
-            <a href="#" title="YouTube">▶️</a>
-            <a href="#" title="Twitter">🐦</a>
-            <a href="https://wa.me/905331400419" title="WhatsApp">💬</a>
+            <a href="#" title="Instagram">IG</a>
+            <a href="#" title="YouTube">YT</a>
+            <a href="#" title="Twitter">X</a>
+            <a href="https://wa.me/905331400419" title="WhatsApp">WP</a>
         </div>
         <p>© 2026 NOV Tasarım | Tüm hakları saklıdır.</p>
     </div>
