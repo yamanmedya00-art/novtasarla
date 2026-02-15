@@ -4,19 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NOV Edit | Tasarım</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --accent: #ec4899;
+    --bg-dark: #0a0a0a;
+    --bg-card: #111111;
+    --text-light: #f5f5f5;
+    --text-muted: #a1a1aa;
+    --border: #27272a;
+    --gradient-1: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+    --gradient-2: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background: #000;
-    color: #fff;
+    background: var(--bg-dark);
+    color: var(--text-light);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .container {
@@ -30,344 +50,772 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 0;
-    border-bottom: 1px solid #111;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    width: 100%;
+}
+
+.nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
 }
 
 .logo {
     font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 3px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .nav-links {
-    display: flex;
-    gap: 30px;
+    display: display: flex;
+    gap: 40px;
 }
 
 .nav-links a {
-    color: #aaa;
+    color: var(--text-muted);
     text-decoration: none;
-    font-weight: bold;
-    transition: .3s;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-1);
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #fff;
+    color: var(--text-light);
 }
 
-/* HERO */
-.hero {
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* HERO VIDEO SECTION */
+.hero-video {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2;
     text-align: center;
-    padding: 120px 0 80px;
+    padding: 60px;
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    max-width: 800px;
+    margin: 0 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-.hero h1 {
-    font-size: 44px;
+.hero-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 1px;
+    background: var(--gradient-1);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.5;
+}
+
+.hero-overlay h1 {
+    font-size: 56px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    background: linear-gradient(to right, #fff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-overlay p {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gradient-1);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.5);
+}
+
+.hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 60px -10px rgba(99, 102, 241, 0.6);
+}
+
+/* SECTIONS */
+section {
+    padding: 100px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-label {
+    display: inline-block;
+    padding: 8px 16px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary);
     margin-bottom: 20px;
 }
 
-.hero p {
-    color: #ccc;
-    max-width: 700px;
-    margin: auto;
+.section-title {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #fff 0%, #a1a1aa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-/* BAŞLIK */
-.section-title {
-    text-align: center;
-    font-size: 28px;
-    margin: 40px 0 40px;
+.section-subtitle {
+    color: var(--text-muted);
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 /* GRID */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
 /* CARD */
 .card {
-    background: #111;
-    border: 1px solid #222;
-    padding: 30px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px 30px;
     text-align: center;
-    transition: .3s;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-1);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
 }
 
 .card:hover {
-    border-color: #fff;
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.3);
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-1);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 28px;
+}
+
+.card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-light);
 }
 
 .price {
-    font-size: 26px;
-    margin: 15px 0;
-    font-weight: bold;
+    font-size: 36px;
+    font-weight: 800;
+    margin: 20px 0;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.price span {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-muted);
+    -webkit-text-fill-color: var(--text-muted);
 }
 
 .features {
     list-style: none;
-    margin: 20px 0;
-    color: #bbb;
-    text-align: center;
+    margin: 30px 0;
+    text-align: left;
+}
+
+.features li {
+    color: var(--text-muted);
+    padding: 10px 0;
+    padding-left: 28px;
+    position: relative;
+    font-size: 15px;
+}
+
+.features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
 }
 
 /* BUTON */
 .button {
-    display: inline-block;
-    background: #fff;
-    color: #000;
-    padding: 12px 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--text-light);
+    padding: 14px 28px;
     text-decoration: none;
-    font-weight: bold;
-    transition: .3s;
-    margin-top: 20px;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .button:hover {
-    background: #000;
-    color: #fff;
-    border: 1px solid #fff;
+    background: var(--gradient-1);
+    border-color: transparent;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.4);
 }
 
-/* CTA */
-.cta {
+.button.primary {
+    background: var(--gradient-1);
+    border-color: transparent;
+    color: white;
+}
+
+/* REFERANSLAR */
+.referans-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
     text-align: center;
-    margin: 100px 0;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.referans-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.referans-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.referans-card:hover::after {
+    opacity: 1;
+}
+
+.referans-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.referans-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* CTA SECTION */
+.cta-section {
+    background: var(--gradient-1);
+    border-radius: 30px;
+    padding: 80px 40px;
+    text-align: center;
+    margin: 0 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+}
+
+.cta-section h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-section p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    color: var(--primary-dark);
+    padding: 18px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 60px -10px rgba(0,0,0,0.4);
 }
 
 /* FOOTER */
 footer {
     text-align: center;
-    padding: 40px 0;
-    color: #777;
-    border-top: 1px solid #111;
-    margin-top: 80px;
+    padding: 60px 0 40px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    width: 44px;
+    height: 44px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 20px;
+}
+
+.social-links a:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+    transform: translateY(-3px);
 }
 
 /* MOBİL */
-@media(max-width:768px) {
-
-    .nav {
+@media(max-width: 768px) {
+    .nav .container {
         flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .logo {
-        font-size: 20px;
-        text-align: center;
+        gap: 15px;
     }
 
     .nav-links {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
+        gap: 20px;
     }
 
-    .nav-links a {
-        font-size: 14px;
+    .hero-overlay {
+        padding: 40px 25px;
+        margin: 0 15px;
     }
 
-    .hero h1 {
-        font-size: 30px;
+    .hero-overlay h1 {
+        font-size: 36px;
     }
-} 
 
-.hero-overlay {
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    text-align:center;
-    background:rgba(0,0,0,0.5);
-    padding:40px;
-    border-radius:12px;
-}
+    .hero-overlay p {
+        font-size: 16px;
+    }
 
-.hero-overlay h1 {
-    font-size:42px;
-    margin-bottom:15px;
-}
+    .section-title {
+        font-size: 32px;
+    }
 
-.hero-overlay p {
-    font-size:18px;
-    color:#ccc;
-}
-    
-.hero-video {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    line-height: 0;
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .cta-section {
+        padding: 60px 25px;
+        margin: 0 15px;
+    }
+
+    .cta-section h2 {
+        font-size: 28px;
+    }
 }
 
-.hero-video video {
-    width: 100%;
-    height: auto;
-    display: block;
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-    
+
+.card, .referans-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
 </style>
 </head>
 
 <body>
 
 <!-- NAV -->
-<nav class="container nav">
-    <div class="logo">NOV Edit | Tasarım</div>
-    <div class="nav-links">
-        <a href="ornek-videolar.html">Örnek Videolar</a>
-        <a href="ornek-siteler.html">Örnek Siteler</a>
+<nav class="nav">
+    <div class="container">
+        <div class="logo">NOV Edit | Tasarım</div>
+        <div class="nav-links">
+            <a href="#video-paketleri">Video</a>
+            <a href="#web-paketleri">Web Tasarım</a>
+            <a href="#referanslar">Referanslar</a>
+        </div>
     </div>
 </nav>
 
+<!-- HERO VIDEO -->
 <section class="hero-video">
-    <video class="hero-video-media" autoplay muted loop playsinline>
+    <video autoplay muted loop playsinline>
         <source src="videolar/tanitim.mp4" type="video/mp4">
     </video>
+    <div class="hero-overlay">
+        <h1>Kreatif Dünyaya Hoş Geldiniz</h1>
+        <p>Profesyonel video edit ve web tasarım hizmetleriyle markanızı bir üst seviyeye taşıyoruz.</p>
+        <a href="https://wa.me/905331400419" class="hero-cta">
+            <span>Hemen Başlayın</span>
+            <span>→</span>
+        </a>
+    </div>
 </section>
-    
-
 
 <!-- VİDEO HİZMETLERİ -->
-<h2 class="section-title">Video Hizmet Paketleri</h2>
+<section id="video-paketleri" class="container">
+    <div class="section-header">
+        <span class="section-label">Video Prodüksiyon</span>
+        <h2 class="section-title">Video Hizmet Paketleri</h2>
+        <p class="section-subtitle">İçeriklerinizi profesyonel dokunuşlarla öne çıkarın</p>
+    </div>
+    
+    <div class="grid">
+        <div class="card">
+            <div class="card-icon">🎬</div>
+            <h3>Kısa Video Hizmeti</h3>
+            <div class="price">800<span>₺</span></div>
+            <ul class="features">
+                <li>Reels / Shorts Formatı</li>
+                <li>Uzun Video Dönüştürme</li>
+                <li>Sınırsız Revizyon Hakkı</li>
+                <li>24 Saat Teslimat</li>
+            </ul>
+            <a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
+        </div>
 
-<section class="container">
-<div class="grid">
+        <div class="card">
+            <div class="card-icon">🎥</div>
+            <h3>Uzun Video Hizmeti</h3>
+            <div class="price">1000<span>₺</span></div>
+            <ul class="features">
+                <li>20 Dakikaya Kadar Edit</li>
+                <li>Profesyonel Kurgu + Geçiş</li>
+                <li>Sınırsız Revizyon Hakkı</li>
+                <li>Color Grading</li>
+            </ul>
+            <a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
+        </div>
 
-<div class="card">
-<h3>Kısa Video Hizmeti</h3>
-<div class="price">800₺</div>
-<ul class="features">
-<li>Reels / Shorts</li>
-<li>Uzun Video Dönüştürme</li>
-<li>Sınırsız Revizyon</li>
-</ul>
-<a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
-</div>
+        <div class="card">
+            <div class="card-icon">🎙️</div>
+            <h3>Dublajlandırma Hizmeti</h3>
+            <div class="price">350<span>₺</span></div>
+            <ul class="features">
+                <li>20 Dakikaya Kadar Dublaj</li>
+                <li>Binlerce Özel Ses Kütüphanesi</li>
+                <li>Sınırsız Dil Seçeneği</li>
+                <li>AI Ses Optimizasyonu</li>
+            </ul>
+            <a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
+        </div>
 
-<div class="card">
-<h3>Uzun Video Hizmeti</h3>
-<div class="price">1000₺</div>
-<ul class="features">
-<li>20 Dakikaya Kadar Edit</li>
-<li>Kurgu + Geçiş</li>
-<li>Sınırsız Revizyon</li>
-</ul>
-<a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
-</div>
+        <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3>4K Aktarım Hizmeti</h3>
+            <div class="price">500<span>₺</span></div>
+            <ul class="features">
+                <li>20 Dakikaya Kadar Aktarım</li>
+                <li>60FPS Video Kalitesi</li>
+                <li>Sınırsız Revizyon Hakkı</li>
+                <li>HDR Desteği</li>
+            </ul>
+            <a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
+        </div>
 
-<div class="card">
-<h3>Dublajlandırma Hizmeti</h3>
-<div class="price">350₺</div>
-<ul class="features">
-<li>20 Dakikaya Kadar Dublaj</li>
-<li>Binlerce Özel Ses</li>
-<li>Sınırsız Dil</li>
-</ul>
-<a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
-</div> 
-
-<div class="card">
-<h3>4K Aktarım Hizmeti</h3>
-<div class="price">500₺</div>
-<ul class="features">
-<li>20 Dakikaya Kadar Aktarım</li>
-<li>60Fps Video Hızı</li>
-<li>Sınırsız Revizyon</li>
-</ul>
-<a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
-</div>
-
-<div class="card">
-<h3>Özel Fon Müziği</h3>
-<div class="price">500₺</div>
-<ul class="features">
-<li>İsteğe Özel Fon Müzik</li>
-<li>Binlerce Özel Tema</li>
-<li>Sınırsız Revizyon</li>
-</ul>
-<a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
-</div>
-
-
-</div>
+        <div class="card">
+            <div class="card-icon">🎵</div>
+            <h3>Özel Fon Müziği</h3>
+            <div class="price">500<span>₺</span></div>
+            <ul class="features">
+                <li>İsteğe Özel Fon Müzik</li>
+                <li>Binlerce Özel Tema</li>
+                <li>Sınırsız Revizyon Hakkı</li>
+                <li>Lisanslı Kullanım</li>
+            </ul>
+            <a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
+        </div>
+    </div>
 </section>
 
 <!-- WEB TASARIM -->
-<h2 class="section-title">Web Tasarım Paketleri</h2>
+<section id="web-paketleri" class="container">
+    <div class="section-header">
+        <span class="section-label">Web Çözümleri</span>
+        <h2 class="section-title">Web Tasarım Paketleri</h2>
+        <p class="section-subtitle">Modern ve hızlı web siteleriyle dijital varlığınızı güçlendirin</p>
+    </div>
 
-<section class="container">
-<div class="grid">
+    <div class="grid">
+        <div class="card">
+            <div class="card-icon">🚀</div>
+            <h3>Başlangıç</h3>
+            <div class="price">2.999<span>₺</span></div>
+            <ul class="features">
+                <li>Tek Sayfa Landing</li>
+                <li>Tam Mobil Uyumlu</li>
+                <li>1 Revizyon Hakkı</li>
+                <li>Temel SEO</li>
+            </ul>
+            <a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
+        </div>
 
-<div class="card">
-<h3>Başlangıç</h3>
-<div class="price">2.999₺</div>
-<ul class="features">
-<li>Tek Sayfa</li>
-<li>Mobil Uyumlu</li>
-<li>1 Revizyon</li>
-</ul>
-<a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
-</div>
+        <div class="card">
+            <div class="card-icon">⭐</div>
+            <h3>Standart</h3>
+            <div class="price">3.999<span>₺</span></div>
+            <ul class="features">
+                <li>3 Sayfa Tasarım</li>
+                <li>Gelişmiş SEO</li>
+                <li>2 Revizyon Hakkı</li>
+                <li>İletişim Formu</li>
+            </ul>
+            <a href="https://wa.me/905331400419" class="button primary">WhatsApp'tan Yaz</a>
+        </div>
 
-<div class="card">
-<h3>Standart</h3>
-<div class="price">3.999₺</div>
-<ul class="features">
-<li>3 Sayfa</li>
-<li>SEO Temel</li>
-<li>2 Revizyon</li>
-</ul>
-<a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
-</div>
-
-<div class="card">
-<h3>Premium</h3>
-<div class="price">4.999₺</div>
-<ul class="features">
-<li>5+ Sayfa</li>
-<li>Gelişmiş SEO</li>
-<li>Hız Optimizasyonu</li>
-<li>5 Revizyon</li>
-</ul>
-<a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
-</div>
-
-</div>
+        <div class="card">
+            <div class="card-icon">👑</div>
+            <h3>Premium</h3>
+            <div class="price">4.999<span>₺</span></div>
+            <ul class="features">
+                <li>5+ Sayfa Tasarım</li>
+                <li>Profesyonel SEO</li>
+                <li>Hız Optimizasyonu</li>
+                <li>5 Revizyon Hakkı</li>
+                <li>Admin Paneli</li>
+            </ul>
+            <a href="https://wa.me/905331400419" class="button">WhatsApp'tan Yaz</a>
+        </div>
+    </div>
 </section>
 
 <!-- REFERANSLAR -->
-<h2 class="section-title">Referanslar</h2>
+<section id="referanslar" class="container">
+    <div class="section-header">
+        <span class="section-label">Portföy</span>
+        <h2 class="section-title">Referanslar</h2>
+        <p class="section-subtitle">Birlikte çalıştığımız markalar</p>
+    </div>
 
-<section class="container">
-<div class="grid">
+    <div class="grid">
+        <div class="referans-card">
+            <h3>THOUGHT MILLIONAIRE</h3>
+            <p>YouTube Kanalı</p>
+            <a href="https://youtube.com/@thoughtmillionaire" target="_blank" class="button">Kanala Git →</a>
+        </div>
 
-<div class="card">
-<h3>THOUGHT MILLIONAIRE
-</h3>
-<a href="#https://youtube.com/@thoughtmillionaire?si=CmPyTLJGPz9NwZhq" class="button">Kanala Git</a>
-</div>
+        <div class="referans-card">
+            <h3>3D HEALTH</h3>
+            <p>Sağlık Platformu</p>
+            <a href="#" class="button">Yakında</a>
+        </div>
 
-<div class="card">
-<h3>3D HEALTH</h3>
-<a href="#" class="button">Kanala Git</a>
-</div>
-
-<div class="card">
-<h3>Furkan Uysal</h3>
-<a href="#" class="button">Kanala Git</a>
-</div>
-
-</div>
+        <div class="referans-card">
+            <h3>Furkan Uysal</h3>
+            <p>Kişisel Marka</p>
+            <a href="#" class="button">Yakında</a>
+        </div>
+    </div>
 </section>
 
-<footer>
-© 2026 — NOV Tasarım | Yazılım
+<!-- CTA SECTION -->
+<section class="container">
+    <div class="cta-section">
+        <h2>Hayalinizdeki Projeyi Gerçekleştirelim</h2>
+        <p>Profesyonel ekibimizle tanışın ve hemen başlayın</p>
+        <a href="https://wa.me/905331400419" class="cta-button">
+            <span>Ücretsiz Danışmanlık Al</span>
+            <span>→</span>
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="container">
+    <div class="footer-content">
+        <div class="social-links">
+            <a href="#" title="Instagram">📷</a>
+            <a href="#" title="YouTube">▶️</a>
+            <a href="#" title="Twitter">🐦</a>
+            <a href="https://wa.me/905331400419" title="WhatsApp">💬</a>
+        </div>
+        <p>© 2026 NOV Tasarım | Tüm hakları saklıdır.</p>
+    </div>
 </footer>
 
 </body>
 </html>
+
