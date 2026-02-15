@@ -3,259 +3,486 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NOV Tasarım | Yazılım — Örnek Videolar</title>
+<title>NOV Edit | Tasarım — Örnek Videolar</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+:root {
+    --bg-dark: #000000;
+    --bg-card: #0a0a0a;
+    --bg-hover: #111111;
+    --text-white: #ffffff;
+    --text-gray: #888888;
+    --text-light: #cccccc;
+    --border: #222222;
+    --border-hover: #444444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
 body {
-    background:#000;
-    color:#fff;
-    font-family:Arial;
-    margin:0;
+    background: var(--bg-dark);
+    color: var(--text-white);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .container {
-    width:90%;
-    max-width:1400px;
-    margin:auto;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
 }
 
 /* NAV */
 .nav {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:25px 0;
-    border-bottom:1px solid #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
 }
 
 .logo {
-    font-size:26px;
-    font-weight:bold;
-    letter-spacing:2px;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--text-white);
+    text-transform: uppercase;
 }
 
-.nav a {
-    color:#aaa;
-    text-decoration:none;
-    font-weight:bold;
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
 }
 
-.nav a:hover {
-    color:#fff;
+.nav-links a {
+    color: var(--text-gray);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--text-white);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-white);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* SPACER FOR FIXED NAV */
+.nav-spacer {
+    height: 80px;
 }
 
 /* BAŞLIK */
+.section-header {
+    text-align: center;
+    margin: 60px 0 50px;
+}
+
+.section-label {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-gray);
+    margin-bottom: 20px;
+}
+
 .section-title {
-    text-align:center;
-    margin:70px 0 50px;
-    font-size:32px;
+    font-size: 36px;
+       font font-weight: 800;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 /* YATAY SLIDER */
 .video-slider {
-    display:flex;
-    gap:40px;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    padding-bottom:40px;
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 40px;
+    padding-right: 20px;
 }
 
 .video-slider::-webkit-scrollbar {
-    height:8px;
+    height: 6px;
+}
+
+.video-slider::-webkit-scrollbar-track {
+    background: var(--bg-card);
 }
 
 .video-slider::-webkit-scrollbar-thumb {
-    background:#333;
-    border-radius:10px;
+    background: var(--border);
+    border-radius: 10px;
+}
+
+.video-slider::-webkit-scrollbar-thumb:hover {
+    background: var(--border-hover);
 }
 
 .video-card {
-    min-width:600px;
-    scroll-snap-align:start;
-    background:#111;
-    border:1px solid #222;
-    padding:20px;
-    transition:.3s;
-    border-radius:12px;
+    min-width: 600px;
+    scroll-snap-align: start;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 25px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--text-white);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
 }
 
 .video-card:hover {
-    border-color:#fff;
-    transform:scale(1.02);
+    border-color: var(--border-hover);
+    transform: translateY(-5px);
+    background: var(--bg-hover);
+}
+
+.video-card:hover::before {
+    transform: scaleX(1);
 }
 
 video {
-    width:100%;
-    height:350px;
-    object-fit:cover;
-    border-radius:8px;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
 }
 
 /* BİLGİ KARTLARI */
 .info-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
 }
 
 .info-card {
-    background:#111;
-    padding:30px;
-    border:1px solid #222;
-    border-radius:12px;
-    transition:.3s;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--text-white);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
 }
 
 .info-card:hover {
-    border-color:#fff;
-    transform:translateY(-5px);
+    transform: translateY(-8px);
+    border-color: var(--border-hover);
+    background: var(--bg-hover);
+}
+
+.info-card:hover::before {
+    transform: scaleX(1);
+}
+
+.info-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .info-card p {
-    color:#bbb;
+    color: var(--text-light);
+    font-size: 14px;
+    line-height: 1.6;
 }
 
-.center-text {
-    text-align:center;
+/* SÜREÇ NUMARALARI */
+.info-card .number {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--border);
+    margin-bottom: 15px;
+    display: block;
+    line-height: 1;
 }
 
 /* ALT KOYU ALAN */
 .dark-section {
-    background:#0a0a0a;
-    padding:80px 0;
+    background: var(--bg-card);
+    padding: 100px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.dark-section h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.center-text {
+    text-align: center;
+}
+
+/* SECTION SPACING */
+section {
+    padding: 80px 0;
 }
 
 /* MOBİL */
-@media(max-width:768px){
+@media(max-width: 768px) {
+    .nav {
+        padding: 15px 0;
+    }
+
+    .nav .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .nav-links {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .nav-spacer {
+        height: 100px;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
 
     .video-card {
-        min-width:85%;
+        min-width: 85%;
+        padding: 20px;
     }
 
     video {
-        height:240px;
+        height: 240px;
     }
 
-    .nav {
-        flex-direction:column;
-        gap:15px;
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border-hover);
 }
 </style>
 </head>
 
 <body>
 
-<nav class="container nav">
-    <div class="logo">NOV Tasarım | Yazılım</div>
-    <a href="index.html">Ana Sayfa</a>
+<!-- NAV -->
+<nav class="nav">
+    <div class="container">
+        <div class="logo">NOV Edit | Tasarım</div>
+        <div class="nav-links">
+            <a href="index.html">Ana Sayfa</a>
+            <a href="ornek-siteler.html">Örnek Siteler</a>
+            <a href="index.html#video-paketleri">Paketler</a>
+        </div>
+    </div>
 </nav>
 
-<h2 class="section-title">Örnek Videolar</h2>
+<div class="nav-spacer"></div>
 
+<!-- VİDEOLAR -->
 <section class="container">
-<div class="video-slider">
+    <div class="section-header">
+        <span class="section-label">Portföy</span>
+        <h2 class="section-title">Örnek Videolar</h2>
+    </div>
 
-<div class="video-card">
-<video controls>
-<source src="videolar/video1.mp4" type="video/mp4">
-</video>
-</div>
+    <div class="video-slider">
+        <div class="video-card">
+            <video controls poster="videolar/thumb1.jpg">
+                <source src="videolar/video1.mp4" type="video/mp4">
+            </video>
+        </div>
 
-<div class="video-card">
-<video controls>
-<source src="videolar/video2.mp4" type="video/mp4">
-</video>
-</div>
+        <div class="video-card">
+            <video controls poster="videolar/thumb2.jpg">
+                <source src="videolar/video2.mp4" type="video/mp4">
+            </video>
+        </div>
 
-<div class="video-card">
-<video controls>
-<source src="videolar/video3.mp4" type="video/mp4">
-</video>
-</div>
+        <div class="video-card">
+            <video controls poster="videolar/thumb3.jpg">
+                <source src="videolar/video3.mp4" type="video/mp4">
+            </video>
+        </div>
 
-<div class="video-card">
-<video controls>
-<source src="videolar/video4.mp4" type="video/mp4">
-</video>
-</div>
+        <div class="video-card">
+            <video controls poster="videolar/thumb4.jpg">
+                <source src="videolar/video4.mp4" type="video/mp4">
+            </video>
+        </div>
 
-<div class="video-card">
-<video controls>
-<source src="videolar/video5.mp4" type="video/mp4">
-</video>
-</div>
-
-</div>
+        <div class="video-card">
+            <video controls poster="videolar/thumb5.jpg">
+                <source src="videolar/video5.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
 </section>
 
 <!-- VIDEO HİZMET SÜRECİ -->
-<section class="container" style="margin-top:100px; margin-bottom:100px;">
+<section class="container">
+    <div class="section-header">
+        <span class="section-label">Süreç</span>
+        <h2 class="section-title">Video Hizmet Sürecimiz</h2>
+    </div>
 
-<h2 class="center-text" style="margin-bottom:60px; font-size:28px;">
-Video Hizmet Sürecimiz
-</h2>
+    <div class="info-grid">
+        <div class="info-card">
+            <span class="number">01</span>
+            <h3>Brief & Planlama</h3>
+            <p>Marka hedeflerinizi analiz ediyor, içerik stratejisini belirliyoruz.</p>
+        </div>
 
-<div class="info-grid">
+        <div class="info-card">
+            <span class="number">02</span>
+            <h3>Kurgu & Montaj</h3>
+            <p>Profesyonel geçişler, ritim uyumu ve dinamik edit uygulanır.</p>
+        </div>
 
-<div class="info-card">
-<h3>1. Brief & Planlama</h3>
-<p>Marka hedeflerinizi analiz ediyor, içerik stratejisini belirliyoruz.</p>
-</div>
+        <div class="info-card">
+            <span class="number">03</span>
+            <h3>Revizyon</h3>
+            <p>Geri bildirimler doğrultusunda son düzenlemeler yapılır.</p>
+        </div>
 
-<div class="info-card">
-<h3>2. Kurgu & Montaj</h3>
-<p>Profesyonel geçişler, ritim uyumu ve dinamik edit uygulanır.</p>
-</div>
-
-<div class="info-card">
-<h3>3. Revizyon</h3>
-<p>Geri bildirimler doğrultusunda son düzenlemeler yapılır.</p>
-</div>
-
-<div class="info-card">
-<h3>4. Teslim</h3>
-<p>YouTube, Reels veya Shorts formatına uygun teslim edilir.</p>
-</div>
-
-</div>
-
+        <div class="info-card">
+            <span class="number">04</span>
+            <h3>Teslim</h3>
+            <p>YouTube, Reels veya Shorts formatına uygun teslim edilir.</p>
+        </div>
+    </div>
 </section>
 
 <!-- NEDEN NOV -->
 <section class="dark-section">
-<div class="container">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">Neden Biz</span>
+            <h2 class="section-title">NOV Edit | Tasarım</h2>
+        </div>
 
-<h2 class="center-text" style="margin-bottom:50px; font-size:28px;">
-Neden NOV Tasarım | Yazılım?
-</h2>
+        <div class="info-grid center-text">
+            <div>
+                <h3>⚡ Hızlı Teslim</h3>
+                <p style="color: var(--text-gray);">Projeler zamanında ve eksiksiz teslim edilir.</p>
+            </div>
 
-<div class="info-grid center-text">
+            <div>
+                <h3>🎬 Algoritma Odaklı</h3>
+                <p style="color: var(--text-gray);">YouTube ve sosyal medya algoritmalarına uygun edit.</p>
+            </div>
 
-<div>
-<h3>⚡ Hızlı Teslim</h3>
-<p style="color:#bbb;">Projeler zamanında ve eksiksiz teslim edilir.</p>
-</div>
+            <div>
+                <h3>🎨 Renk & Ses</h3>
+                <p style="color: var(--text-gray);">Profesyonel renk düzenleme ve ses tasarımı dahil.</p>
+            </div>
 
-<div>
-<h3>🎬 Algoritma Odaklı Kurgu</h3>
-<p style="color:#bbb;">YouTube ve sosyal medya algoritmalarına uygun edit yapılır.</p>
-</div>
-
-<div>
-<h3>🎨 Profesyonel Renk & Ses</h3>
-<p style="color:#bbb;">Renk düzenleme ve ses tasarımı dahildir.</p>
-</div>
-
-<div>
-<h3>🚀 Marka Güçlendirme</h3>
-<p style="color:#bbb;">Her video marka kimliğine uygun tasarlanır.</p>
-</div>
-
-</div>
-
-</div>
+            <div>
+                <h3>🚀 Marka Güçlendirme</h3>
+                <p style="color: var(--text-gray);">Her video marka kimliğine uygun tasarlanır.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 </body>
 </html>
+
