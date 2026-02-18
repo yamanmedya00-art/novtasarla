@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Geleneksel lezzetleri modern sunumla buluşturan ödüllü restoran. Akdeniz mutfağı, taze malzemeler ve eşsiz atmosfer.">
+    <meta name="keywords" content="restoran, cafe, akdeniz mutfağı, yemek, fine dining, brunch, istanbul restoran">
+    <title>Zeytin Restoran | Akdeniz Mutfağının Modern Yorumu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Lato', sans-serif; color: #333; background: #fff; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        
+        /* Header */
+        header { background: #1a1a1a; color: #d4af37; padding: 1rem 0; position: fixed; width: 100%; z-index: 1000; }
+        .header-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s; }
+        .nav-links a:hover { color: #d4af37; }
+        .reservation-btn { background: #d4af37; color: #1a1a1a; padding: 10px 25px; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; transition: background 0.3s; }
+        .reservation-btn:hover { background: #c4a030; }
+        
+        /* Hero */
+        .hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23222" width="1200" height="800"/><circle fill="%23333" cx="600" cy="400" r="300"/></svg>'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+        .hero-content h1 { font-size: 5rem; margin-bottom: 1rem; font-weight: 400; letter-spacing: 3px; }
+        .hero-content p { font-size: 1.3rem; letter-spacing: 2px; margin-bottom: 2rem; font-weight: 300; }
+        .hero-btn { border: 2px solid #d4af37; color: #d4af37; padding: 15px 40px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s; display: inline-block; }
+        .hero-btn:hover { background: #d4af37; color: #1a1a1a; }
+        
+        /* Features */
+        .features { display: grid; grid-template-columns: repeat(3, 1fr); }
+        .feature { padding: 80px 40px; text-align: center; }
+        .feature:nth-child(1) { background: #f9f9f9; }
+        .feature:nth-child(2) { background: #d4af37; color: #1a1a1a; }
+        .feature:nth-child(3) { background: #1a1a1a; color: white; }
+        .feature-icon { font-size: 3rem; margin-bottom: 1.5rem; }
+        .feature h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+        .feature p { line-height: 1.8; font-size: 0.95rem; }
+        
+        /* Menu Preview */
+        .menu-section { padding: 100px 2rem; max-width: 1000px; margin: 0 auto; text-align: center; }
+        .menu-section h2 { font-size: 3rem; margin-bottom: 1rem; color: #1a1a1a; }
+        .menu-section .subtitle { color: #666; margin-bottom: 3rem; font-style: italic; }
+        
+        .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; text-align: left; margin-top: 3rem; }
+        .menu-item { border-bottom: 1px dotted #ccc; padding-bottom: 1.5rem; }
+        .menu-item-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+        .menu-item h4 { font-size: 1.3rem; color: #1a1a1a; }
+        .menu-item .price { color: #d4af37; font-weight: bold; font-size: 1.2rem; }
+        .menu-item p { color: #666; font-size: 0.9rem; line-height: 1.6; }
+        
+        /* Gallery */
+        .gallery { display: grid; grid-template-columns: repeat(4, 1fr); height: 400px; }
+        .gallery-item { background: #ddd; overflow: hidden; position: relative; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        
+        /* Footer */
+        footer { background: #1a1a1a; color: white; padding: 60px 2rem; text-align: center; }
+        .footer-content { max-width: 800px; margin: 0 auto; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 2rem; color: #d4af37; margin-bottom: 1rem; }
+        .contact-info { margin: 2rem 0; line-height: 2; color: #aaa; }
+        
+        @media (max-width: 768px) {
+            .features { grid-template-columns: 1fr; }
+            .menu-grid { grid-template-columns: 1fr; }
+            .gallery { grid-template-columns: repeat(2, 1fr); height: auto; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">ZEYTİN</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#anasayfa">Anasayfa</a></li>
+                    <li><a href="#menu">Menü</a></li>
+                    <li><a href="#hakkimizda">Hakkımızda</a></li>
+                    <li><a href="#iletisim">İletişim</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="reservation-btn">Rezervasyon</a>
+        </div>
+    </header>
+
+    <section class="hero" id="anasayfa">
+        <div class="hero-content">
+            <h1>Zeytin</h1>
+            <p>Akdeniz Mutfağının Modern Yorumu</p>
+            <a href="#menu" class="hero-btn">Menüyü Keşfet</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <div class="feature-icon">🌿</div>
+            <h3>Taze Malzemeler</h3>
+            <p>Her gün yerel üreticilerden tedarik ettiğimiz en taze sebzeler ve deniz ürünleri.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">👨‍🍳</div>
+            <h3>Ödüllü Şefler</h3>
+            <p>Uluslararası deneyime sahip şeflerimizle benzersiz lezzet deneyimleri.</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🍷</div>
+            <h3>Şarap Mahzeni</h3>
+            <p>200'den fazla yerli ve yabancı şarap seçeneği ile mükemmel eşleşmeler.</p>
+        </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+        <h2>Öne Çıkan Lezzetler</h2>
+        <p class="subtitle">Mevsimsel menümüzden seçkiler</p>
+        
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <h4>Trüf Mantarlı Risotto</h4>
+                    <span class="price">185₺</span>
+                </div>
+                <p>İtalyan arborio pirinci, siyah trüf yağı, parmesan</p>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <h4>Izgara Deniz Levreği</h4>
+                    <span class="price">220₺</span>
+                </div>
+                <p>Deniz börülcesi püresi, enginar, limon sos</p>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <h4>Kuzu Tandır</h4>
+                    <span class="price">195₺</span>
+                </div>
+                <p>7 saat pişmiş, baharatlı bulgur pilavı, közlenmiş sebzeler</p>
+            </div>
+            <div class="menu-item">
+                <div class="menu-item-header">
+                    <h4>Enginar Kalbi Salatası</h4>
+                    <span class="price">95₺</span>
+                </div>
+                <p>Roka, parmesan şeritleri, balsamik glaze, ceviz</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <div class="gallery-item">
+            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect fill='%23333' width='400' height='400'/></svg>" alt="Yemek 1">
+        </div>
+        <div class="gallery-item">
+            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect fill='%23444' width='400' height='400'/></svg>" alt="Yemek 2">
+        </div>
+        <div class="gallery-item">
+            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect fill='%23555' width='400' height='400'/></svg>" alt="Yemek 3">
+        </div>
+        <div class="gallery-item">
+            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect fill='%23666' width='400' height='400'/></svg>" alt="Yemek 4">
+        </div>
+    </section>
+
+    <footer id="iletisim">
+        <div class="footer-content">
+            <div class="footer-logo">ZEYTİN</div>
+            <div class="contact-info">
+                <p>📍 Bebek Mahallesi, Cevdet Paşa Cd. No:12, Beşiktaş/İstanbul</p>
+                <p>📞 (0212) 555 44 33</p>
+                <p>✉️ info@zeytinrestoran.com</p>
+                <p>🕐 Salı-Pazar: 12:00 - 23:00</p>
+            </div>
+            <p style="color: #666; font-size: 0.9rem;">&copy; 2024 Zeytin Restoran. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+</html>

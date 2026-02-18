@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ödüllü mimarlık ve iç mimarlık ofisi. Konut, ticari ve kamusal projelerde estetik ve fonksiyonelliği birleştiriyoruz.">
+    <meta name="keywords" content="mimarlık, iç mimarlık, mimari tasarım, ev tasarımı, ofis tasarımı, dekorasyon">
+    <title>ArtSpace Mimarlık | Estetik ve Fonksiyonelliğin Buluşması</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #2c2c2c; background: #fafafa; }
+        
+        /* Navigation */
+        nav { position: fixed; width: 100%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000; padding: 1.5rem 0; border-bottom: 1px solid #eee; }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; }
+        .logo span { font-weight: 700; }
+        .menu { display: flex; gap: 3rem; list-style: none; }
+        .menu a { text-decoration: none; color: #333; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s; position: relative; }
+        .menu a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: #000; transition: width 0.3s; }
+        .menu a:hover::after { width: 100%; }
+        
+        /* Hero */
+        .hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23333" width="1200" height="800"/><path fill="%23555" d="M0 400h1200v400H0z"/><rect fill="%23777" x="100" y="200" width="300" height="400"/><rect fill="%23999" x="500" y="150" width="200" height="500"/></svg>'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+        .hero-content h1 { font-size: 4rem; font-weight: 300; letter-spacing: 5px; margin-bottom: 1rem; opacity: 0; animation: fadeIn 1.5s forwards; }
+        .hero-content p { font-size: 1.2rem; letter-spacing: 2px; opacity: 0; animation: fadeIn 1.5s 0.5s forwards; }
+        
+        /* Portfolio Grid */
+        .portfolio { padding: 100px 2rem; max-width: 1400px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 300; margin-bottom: 1rem; }
+        .section-header p { color: #666; font-size: 1.1rem; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
+        .project { position: relative; overflow: hidden; aspect-ratio: 4/3; cursor: pointer; }
+        .project img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+        .project:hover img { transform: scale(1.1); }
+        .project-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.7); opacity: 0; transition: opacity 0.3s; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; }
+        .project:hover .project-overlay { opacity: 1; }
+        .project-overlay h3 { font-size: 1.8rem; font-weight: 300; margin-bottom: 0.5rem; transform: translateY(20px); transition: transform 0.3s; }
+        .project-overlay p { transform: translateY(20px); transition: transform 0.3s 0.1s; }
+        .project:hover .project-overlay h3, .project:hover .project-overlay p { transform: translateY(0); }
+        
+        /* About */
+        .about { background: white; padding: 100px 2rem; }
+        .about-content { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .about-text h2 { font-size: 2.5rem; font-weight: 300; margin-bottom: 2rem; }
+        .about-text p { color: #666; line-height: 1.8; margin-bottom: 1.5rem; }
+        
+        /* Contact */
+        .contact { padding: 100px 2rem; text-align: center; background: #2c2c2c; color: white; }
+        .contact h2 { font-size: 2.5rem; font-weight: 300; margin-bottom: 2rem; }
+        .contact-btn { display: inline-block; padding: 15px 50px; border: 2px solid white; color: white; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s; margin-top: 2rem; }
+        .contact-btn:hover { background: white; color: #2c2c2c; }
+        
+        @keyframes fadeIn { to { opacity: 1; } }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .grid { grid-template-columns: 1fr; }
+            .about-content { grid-template-columns: 1fr; }
+            .menu { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo"><span>ART</span>SPACE</div>
+            <ul class="menu">
+                <li><a href="#anasayfa">Anasayfa</a></li>
+                <li><a href="#projeler">Projeler</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="anasayfa">
+        <div class="hero-content">
+            <h1>MEKANLARA HAYAT VERİYORUZ</h1>
+            <p>Estetik ve fonksiyonelliğin mükemmel uyumu</p>
+        </div>
+    </section>
+
+    <section class="portfolio" id="projeler">
+        <div class="section-header">
+            <h2>Seçilmiş Projeler</h2>
+            <p>Her projeye özgü, sürdürülebilir ve yenilikçi tasarımlar</p>
+        </div>
+        <div class="grid">
+            <div class="project">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'><rect fill='%23ddd' width='800' height='600'/><rect fill='%23999' x='200' y='150' width='400' height='300'/></svg>" alt="Villa Projesi">
+                <div class="project-overlay">
+                    <h3>Bodrum Villa</h3>
+                    <p>Konut Projesi</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'><rect fill='%23ccc' width='800' height='600'/><rect fill='%23888' x='100' y='100' width='600' height='400'/></svg>" alt="Ofis Projesi">
+                <div class="project-overlay">
+                    <h3>Tech Plaza</h3>
+                    <p>Ticari Proje</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'><rect fill='%23bbb' width='800' height='600'/><rect fill='%23777' x='250' y='200' width='300' height='200'/></svg>" alt="Kafe Projesi">
+                <div class="project-overlay">
+                    <h3>Brew Lab</h3>
+                    <p>İç Mimari</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'><rect fill='%23aaa' width='800' height='600'/><rect fill='%23666' x='150' y='100' width='500' height='400'/></svg>" alt="Müze Projesi">
+                <div class="project-overlay">
+                    <h3>Modern Sanat Müzesi</h3>
+                    <p>Kamusal Proje</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="hakkimizda">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Hakkımızda</h2>
+                <p>2008 yılından bu yana, mekanların ruhunu ve kullanıcıların ihtiyaçlarını harmanlayarak benzersiz tasarımlar üretiyoruz.</p>
+                <p>Sürdürülebilirlik, yenilikçilik ve işlevsellik ilkeleriyle her projeye özel çözümler sunuyoruz.</p>
+            </div>
+            <div class="about-image">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'><rect fill='%23e0e0e0' width='600' height='400'/><circle cx='300' cy='200' r='100' fill='%23ccc'/></svg>" alt="Ofis" style="width:100%;">
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="iletisim">
+        <h2>Projelerinizi Birlikte Hayata Geçirelim</h2>
+        <p style="margin-top: 1rem; opacity: 0.8;">İstanbul, Türkiye</p>
+        <a href="#" class="contact-btn">İletişime Geç</a>
+    </section>
+</body>
+</html>
